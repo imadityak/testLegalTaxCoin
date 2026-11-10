@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* ==========================================================
+   Legal TaxCoin themes. Load AFTER style.css, then set
+   <html data-theme="emerald | burgundy | ocean">.
+   Remove the attribute to get the original navy & gold.
+   ========================================================== */
+
+/* ---------- Theme 1: Emerald Heritage (dark green + brass, Playfair) ---------- */
+[data-theme="emerald"] {
+    --ltc-navy: #0c2b25; --ltc-navy-2: #123a32; --ltc-navy-3: #1b4d42;
+    --ltc-gold: #c9a24d; --ltc-gold-hi: #e8cf8e; --ltc-gold-lo: #94722a;
+    --ltc-ivory: #f6f4ec; --ltc-ink: #14211d; --ltc-muted: #5a6b65; --ltc-line: #dfe3d6;
+    --deep: #061a16; --dim: #8fa8a0; --soft: #c2d3cc;
+    --acc-rgb: 201, 162, 77; --navy-rgb: 12, 43, 37;
+    --serif: 'Playfair Display', Georgia, serif;
+}
+
+/* ---------- Theme 2: Royal Burgundy (wine + rose gold, Lora) ---------- */
+[data-theme="burgundy"] {
+    --ltc-navy: #2a0d17; --ltc-navy-2: #3a1422; --ltc-navy-3: #561d33;
+    --ltc-gold: #d9a68c; --ltc-gold-hi: #f4d3c0; --ltc-gold-lo: #a4694a;
+    --ltc-ivory: #fbf5f2; --ltc-ink: #2a1219; --ltc-muted: #7a6068; --ltc-line: #ecdcd3;
+    --deep: #170609; --dim: #b39099; --soft: #dbc3ca;
+    --acc-rgb: 217, 166, 140; --navy-rgb: 42, 13, 23;
+    --serif: 'Lora', Georgia, serif;
+}
+
+/* ---------- Theme 3: Ocean Modern (light hero, teal + slate, Space Grotesk) ---------- */
+[data-theme="ocean"] {
+    --ltc-navy: #0f1d2e; --ltc-navy-2: #162a40; --ltc-navy-3: #1f3b58;
+    --ltc-gold: #14b8a6; --ltc-gold-hi: #5eead4; --ltc-gold-lo: #0f766e;
+    --ltc-ivory: #f1f7f8; --ltc-ink: #0f1d2e; --ltc-muted: #52667a; --ltc-line: #d8e4e8;
+    --deep: #08121e; --dim: #8aa0b4; --soft: #b8c9d8;
+    --acc-rgb: 20, 184, 166; --navy-rgb: 15, 29, 46;
+    --serif: 'Space Grotesk', system-ui, sans-serif;
+    --bs-body-font-family: 'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* ---------- Shared overrides: replace the hard-coded colours in style.css ---------- */
+[data-theme] body { font-family: var(--bs-body-font-family); }
+[data-theme] .topbar, [data-theme] .site-footer { background: var(--deep); color: var(--dim); }
+[data-theme] .site-header { background: rgba(var(--navy-rgb), .96); border-bottom-color: rgba(var(--acc-rgb), .25); }
+[data-theme] .lead-soft, [data-theme] .stat-label, [data-theme] .site-footer a, [data-theme] .pillar li { color: var(--soft); }
+[data-theme] .hero-note { color: var(--dim); }
+[data-theme] .btn-gold { box-shadow: 0 8px 20px rgba(var(--acc-rgb), .28); }
+[data-theme] .btn-ghost, [data-theme] .navbar-toggler { border-color: rgba(var(--acc-rgb), .55); }
+[data-theme] .btn-ghost:hover { background: rgba(var(--acc-rgb), .14); }
+[data-theme] .hero {
+    background:
+        linear-gradient(135deg, transparent 62%, rgba(var(--acc-rgb), .14) 62.2%, rgba(var(--acc-rgb), .14) 63%, transparent 63.2%),
+        radial-gradient(900px 500px at 90% 0%, var(--ltc-navy-3), transparent 65%), var(--ltc-navy);
+}
+[data-theme] .hero::before { background: linear-gradient(115deg, transparent 40%, rgba(var(--acc-rgb), .08) 50%, transparent 60%); background-size: 250% 100%; }
+[data-theme] .pillar { border-color: rgba(var(--acc-rgb), .35); }
+[data-theme] .pillar:hover { border-color: var(--ltc-gold-hi); }
+[data-theme] .flow-node { border-color: var(--ltc-gold); box-shadow: 0 0 24px rgba(var(--acc-rgb), .15); }
+[data-theme] .flow-hub { box-shadow: 0 0 40px rgba(var(--acc-rgb), .35); }
+[data-theme] .flow-line, [data-theme] .flow-branches::before, [data-theme] .flow-branches .flow-node::before { background-color: rgba(var(--acc-rgb), .4); }
+[data-theme] .panel-fix .tangle { border-color: rgba(var(--acc-rgb), .4); }
+[data-theme] .stats { border-color: rgba(var(--acc-rgb), .3); }
+[data-theme] .form-control:focus { box-shadow: 0 0 0 .2rem rgba(var(--acc-rgb), .25); }
+[data-theme] .accordion { --bs-accordion-btn-focus-box-shadow: 0 0 0 .2rem rgba(var(--acc-rgb), .35); }
+
+/* ---------- Ocean extras: light hero, rounder cards ---------- */
+[data-theme="ocean"] .hero { color: var(--ltc-ink); background: linear-gradient(180deg, #e6f4f3 0%, #f7fbfb 100%); }
+[data-theme="ocean"] .hero::before { display: none; }
+[data-theme="ocean"] .hero .gold { color: var(--ltc-gold-lo); }
+[data-theme="ocean"] .hero .lead-soft { color: var(--ltc-muted); }
+[data-theme="ocean"] .hero .hero-note { color: var(--ltc-muted); }
+[data-theme="ocean"] .hero .btn-ghost { border-color: var(--ltc-navy-3); color: var(--ltc-navy-3); }
+[data-theme="ocean"] .hero .btn-ghost:hover { background: var(--ltc-navy); color: #fff; }
+[data-theme="ocean"] .display-h, [data-theme="ocean"] .section-title { letter-spacing: -.03em; }
+[data-theme="ocean"] .btn { border-radius: 999px; }
+[data-theme="ocean"] .svc, [data-theme="ocean"] .person { border-radius: 1.1rem; border-top-width: 1px; }
+[data-theme="ocean"] .svc { border-top: 4px solid var(--ltc-gold); }
+[data-theme="ocean"] .callback, [data-theme="ocean"] .form-card { border-radius: 1.4rem; }
+[data-theme="ocean"] .roof { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+
+/* ---------- Burgundy extras: sharper, more formal ---------- */
+[data-theme="burgundy"] .btn, [data-theme="burgundy"] .svc, [data-theme="burgundy"] .person { border-radius: 2px; }
+[data-theme="burgundy"] .section-title, [data-theme="burgundy"] .display-h { font-weight: 600; }
